@@ -1,16 +1,18 @@
+//切换图片
 let myImage = document.querySelector('img');
-let myButton = document.querySelector('button');
-let myHeading = document.querySelector('h1');
-
 
 myImage.onclick = function() {
     let mySrc = myImage.getAttribute('src');
-    if(mySrc === 'https://images.pexels.com/photos/14967314/pexels-photo-14967314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') {
-      myImage.setAttribute('src', 'https://images.pexels.com/photos/7472290/pexels-photo-7472290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    if(mySrc === 'images/wbt.jpg') {
+      myImage.setAttribute('src', 'images/gz.jpg');
     } else {
-      myImage.setAttribute('src', 'https://images.pexels.com/photos/14967314/pexels-photo-14967314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      myImage.setAttribute('src', 'images/wbt.jpg');
     }
 }
+
+//切换用户与标题
+let myButton = document.querySelector('#change');
+let myHeading = document.querySelector('h1');
 
 function setUserName() {
   let myName = prompt('请输入你的名字。');
@@ -18,7 +20,7 @@ function setUserName() {
     setUserName();
   } else {
     localStorage.setItem('name', myName);
-    myHeading.textContent = 'Mozilla 酷毙了，' + myName;
+    myHeading.textContent = '欢迎光临，' + myName;
   }
 }
 
@@ -26,7 +28,7 @@ if(!localStorage.getItem('name')) {
   setUserName();
 } else {
   let storedName = localStorage.getItem('name');
-  myHeading.textContent = 'Mozilla 酷毙了，' + storedName;
+  myHeading.textContent = '欢迎光临，' + storedName;
 }
 
 myButton.onclick = function() {
